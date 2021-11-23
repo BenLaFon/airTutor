@@ -10,10 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_22_094450) do
+ActiveRecord::Schema.define(version: 2021_11_24_055624) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.string "time"
+    t.text "comment"
+    t.boolean "status"
+    t.bigint "student_id", null: false
+    t.bigint "teacher_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["student_id"], name: "index_bookings_on_student_id"
+    t.index ["teacher_id"], name: "index_bookings_on_teacher_id"
+  end
+
+  create_table "students", force: :cascade do |t|
+    t.integer "age"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_students_on_user_id"
+  end
+
+  create_table "teachers", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "credential"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_teachers_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
@@ -24,4 +52,8 @@ ActiveRecord::Schema.define(version: 2021_11_22_094450) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "bookings", "students"
+  add_foreign_key "bookings", "teachers"
+  add_foreign_key "students", "users"
+  add_foreign_key "teachers", "users"
 end
