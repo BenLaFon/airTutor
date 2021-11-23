@@ -4,3 +4,4 @@ class Api::V1::UsersController < Api::V1::BaseController
     # render json: @users #Just for testing
   end
 end
+
