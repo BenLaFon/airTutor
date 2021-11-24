@@ -38,6 +38,11 @@ ActiveRecord::Schema.define(version: 2021_11_24_055624) do
   create_table "teachers", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "credential"
+    t.text "course_info"
+    t.text "education_background"
+    t.text "teaching_credentials"
+    t.string "course_title"
+    t.string "image_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_teachers_on_user_id"
