@@ -5,6 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Booking.delete_all
+Student.delete_all
+Teacher.delete_all
+
 tester = User.create(name:' Roger McTeacher', role: 'teacher', phone_number: '158-666-6666', email: 'Roger.Mcteacher@gmail.com')
 teacher = Teacher.create(credential: "all them degrees", course_info: "You gon' learn today", education_background: "Like the best school ever", teaching_credentials:"my mom says im special", course_title: "THE BEST COURSE")
 tester.teacher = teacher
@@ -26,6 +30,6 @@ terrence2 = User.create(name:'Cuiwei', role: 'student', phone_number: '122222222
 student2 = Student.create(age: 22)
 terrence2.student = student2
 
-Booking.create(comment: "this is booking 1", student: student, teacher: teacher)
-Booking.create(comment: "this is booking 2", student: student1, teacher: teacher1)
-Booking.create(comment: "this is booking 3", student: student2, teacher: teacher2)
+Booking.create(comment: "this is booking 1", student: student, teacher: teacher, status: 'accepted')
+Booking.create(comment: "this is booking 2", student: student1, teacher: teacher1, status: 'pending')
+Booking.create(comment: "this is booking 3", student: student2, teacher: teacher2, status: 'rejected')

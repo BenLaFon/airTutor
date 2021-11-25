@@ -2,8 +2,13 @@ class Api::V1::BookingsController < Api::V1::BaseController
   skip_before_action :verify_authenticity_token
   before_action :set_booking, only: [:show, :update]
 
+
    def index
-     @bookings = Booking.all
+    if params[:student_id].present?
+     @bookings = Booking.where(student_id: params[:student_id])
+    else
+      @bookings = Booking.where(teacher_id: params[:teacher_id])
+    end
    end
 
    def show

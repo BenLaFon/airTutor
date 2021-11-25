@@ -7,8 +7,12 @@ Rails.application.routes.draw do
         # resources :teachers, except: [:new, :edit]
       end
       resources :bookings, except: [:new, :edit]
-      resources :teachers, only: [:index, :show, :create, :update]
-      resources :students, only: [:index, :show, :create, :update]
+      resources :teachers, only: [:index, :show, :create, :update] do
+        resources :bookings, only: [:index]
+      end
+      resources :students, only: [:index, :show, :create, :update] do
+        resources :bookings, only: [:index]
+      end
     end
   end
 end
