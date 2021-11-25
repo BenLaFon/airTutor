@@ -9,7 +9,8 @@ class Api::V1::BookingsController < Api::V1::BaseController
     elsif params[:teacher_id].present?
       @bookings = Booking.where(teacher_id: params[:teacher_id])
     else
-      @bookings = Booking.all
+      # @bookings = Booking.all
+      @bookings = Booking.where.not(status: 'rejected')
     end
    end
 
