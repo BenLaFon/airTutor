@@ -6,8 +6,10 @@ class Api::V1::BookingsController < Api::V1::BaseController
    def index
     if params[:student_id].present?
      @bookings = Booking.where(student_id: params[:student_id])
-    else
+    elsif params[:teacher_id].present?
       @bookings = Booking.where(teacher_id: params[:teacher_id])
+    else
+      @bookings = Booking.all
     end
    end
 
