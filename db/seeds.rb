@@ -10,13 +10,13 @@ Student.delete_all
 Teacher.delete_all
 
 tester = User.create(name:'Xun', role: 'teacher', phone_number: '158-666-6666', email: 'Amy@gmail.com')
-teacher = Teacher.create(credential: "Bootstrap Expert", course_info: "How to take care of cats", education_background: "Like all of the coding things", teaching_credentials:"my cats love me", course_title: "Ruby noob to Hero")
+teacher = Teacher.create(credential: "Bootstrap Expert", course_info: "How to take care of cats", education_background: "Like all of the coding things", teaching_credentials:"my cats love me", course_title: "Ruby noob to Hero", image_url: "https://avatars.githubusercontent.com/u/43337020?v=4")
 tester.teacher = teacher
 tester1 = User.create(name:'Pavel', role: 'teacher', phone_number: '158-888-8888', email: 'Pavel@lewagon.com')
-teacher1 = Teacher.create(credential: "CSS Enthusiast", course_info: "All of the CSS info you will ever need", education_background: "Lewagon Alumni Maybe?", teaching_credentials:"Im like really good at math", course_title: "Pizza Vs. Realestate")
+teacher1 = Teacher.create(credential: "CSS Enthusiast", course_info: "All of the CSS info you will ever need", education_background: "Lewagon Alumni Maybe?", teaching_credentials:"Im like really good at math", course_title: "Pizza Vs. Realestate", image_url: "https://res.cloudinary.com/wagon/image/upload/v1/cache/14a3a61d6b7df980f377d2bd3c807888.jpg")
 tester1.teacher = teacher1
 tester2 = User.create(name:'Aggy', role: 'teacher', phone_number: '1-800-8888', email: 'Ruby4Life@gmail.com')
-teacher2 = Teacher.create(credential: "None of your business", course_info: "Pushups and coding", education_background: "Also Lewagon probably", teaching_credentials:"None of your Business", course_title: "Databases and other things")
+teacher2 = Teacher.create(credential: "None of your business", course_info: "Pushups and coding", education_background: "Also Lewagon probably", teaching_credentials:"None of your Business", course_title: "Databases and other things", image_url: "https://avatars.githubusercontent.com/u/45679321?v=4")
 tester2.teacher = teacher2
 
 
