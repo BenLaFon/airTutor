@@ -27,7 +27,7 @@ class Api::V1::BookingsController < Api::V1::BaseController
       @booking.student = Student.find(params[:student_id])
       @booking.teacher = Teacher.find(params[:teacher_id])
       if @booking.save
-        render :show, status: :created
+        # render :show, status: :created
       else
         render_error
       end
@@ -35,7 +35,7 @@ class Api::V1::BookingsController < Api::V1::BaseController
 
     def update
       if @booking.update(booking_params)
-        render :show
+        # render :show
       else
         render_error
       end
